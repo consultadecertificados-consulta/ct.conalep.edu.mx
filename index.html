@@ -2,28 +2,21 @@
 <html lang="es-MX">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Certificado Digital - CONALEP</title>
+    <!-- ✅ AHORA VA DIRECTO, SIN CARPETA -->
+    <script src="folios.js"></script>
 
-    <!-- Scripts -->
-    <script src="https://ct.conalep.edu.mx/js/app.js"></script>
-    <!-- ✅ AQUÍ SE CARGA TU BASE DE DATOS Y LÓGICA -->
-    <script src="js/folios.js"></script>
-
-    <!-- Fuentes y estilos -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link href="https://ct.conalep.edu.mx/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,600">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+    <link rel="stylesheet" href="https://ct.conalep.edu.mx/css/app.css">
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <nav class="navbar navbar-expand-md navbar-light">
         <div class="container">
             <a class="navbar-brand" href="https://ct.conalep.edu.mx/home">
-                <img src="https://ct.conalep.edu.mx/images/logoconalep.png" alt="Colegio Nacional de Educación Profesional Técnica - Cédula Digital">
+                <img src="https://ct.conalep.edu.mx/images/logoconalep.png" alt="CONALEP">
             </a>
         </div>
     </nav>
@@ -32,33 +25,18 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card bg-light">
-                        <div class="card-header"><i class="fa fa-certificate"></i> Validación de certificados electrónicos Modelo 2018:</div>
+                        <div class="card-header"><i class="fa fa-certificate"></i> Validación de certificados Modelo 2018</div>
                         <div class="card-body">
-
-                            <!-- ✅ Formulario que busca en tu propio archivo JS -->
-                            <form onsubmit="return buscarFolio()" id="formulario">
+                            <form onsubmit="return buscarFolio()">
                                 <div class="form-group">
-                                    <label class="col-form-label" for="f">¿Desea consultar un folio de CONALEP?</label>
-                                    <input class="form-control-sm form-control" type="text" name="f" id="f" required aria-describedby="f_helptext">
-                                    <small class="text-muted" id="f_helptext">Ejemplo: CBG3760391305</small>
+                                    <label>Ingresa el folio:</label>
+                                    <input type="text" id="f" class="form-control" placeholder="CBG3760391305" required>
                                 </div>
-                                <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-search"></i> Buscar</button>
+                                <button class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
                             </form>
-
                             <hr>
-                            <table class="table">
-                                <tbody>
-                                    <tr><th colspan="2" class="text-center">¿Cómo te podemos ayudar?</th></tr>
-                                    <tr><th style="width: 35%;">Correo electrónico:</th><td><a href="mailto:contacto@conalep.edu.mx">contacto@conalep.edu.mx</a></td></tr>
-                                    <tr><th>Teléfono:</th><td>555 480 3700 Ext. 2836, 2881 y 2848</td></tr>
-                                </tbody>
-                            </table>
-                            <hr>
-
-                            <!-- ✅ Aquí se mostrarán los resultados automáticamente -->
                             <div id="avisoResultado"></div>
                             <div id="datosCertificado"></div>
-
                             <div class="text-right mt-3">
                                 <a href="https://www.conalep.edu.mx" target="_blank">Portal CONALEP</a>
                             </div>
