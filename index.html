@@ -5,21 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="sdMeK1NSA38xO8YCdrdiqB72JydUjlmbcZAe5utD">
 
     <title>Certificado Digital - CONALEP</title>
 
-    <!-- Scripts -->
-    <script src="https://ct.conalep.edu.mx/js/app.js"></script>
-
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-    <!-- Styles -->
     <link href="https://ct.conalep.edu.mx/css/app.css" rel="stylesheet">
+
+    <!-- ✅ Conexión directa sin carpetas -->
+    <script src="folios.js"></script>
 </head>
 <body>
 <div id="app">
@@ -35,128 +31,105 @@
     </nav>
     <main class="py-4">
         <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card bg-light">
-                <div class="card-header"><i class="fa fa-certificate"></i> Validación de certificados electrónicos Modelo 2018:</div>
-                <div class="card-body">
-                    <form method="GET" action="https://ct.conalep.edu.mx/f2018" id="formulario">
-                        <div class="form-group"><label class="col-form-label" for="f">&iquest;Desea consultar una cct de  CONALEP?</label><input class="form-control-sm form-control" type="text" name="f" id="f" value="--------" required aria-describedby="f_helptext"><small class="text-muted" id="f_helptext">Ejemplo: 12345</small></div>
-                        <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-search"></i> buscar </button>
-                    </form>
-                    <hr>
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th colspan="2" class="text-center">¿Cómo te podemos ayudar?</th>
-                            </tr>
-                            <tr>
-                                <th style="width: 35%;">Correo electrónico:</th>
-                                <td style="width: 65%;"><a title="¿Cómo te podemos ayudar?" href="mailto:contacto@conalep.edu.mx?subject=Ayuda con Certificado de Terminación de Estudios o Certificado de Formación Profesional&body=Saludos, solicito ayuda con Certificado de Terminación de Estudios o Certificado de Formación Profesional" target="_blank">contacto@conalep.edu.mx</a></td>
-                            </tr>
-                            <tr>
-                                <th>Teléfono:</th>
-                                <td><a title="¿Cómo te podemos ayudar?" href="tel:5554803700" target="_blank">555 480 3700 Ext. 2836, 2881 y 2848</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <hr>
-                                                            <div class="alert alert-secondary" role="alert">
-                        La siguiente información fue encontrada en los registros de Control Escolar de esta institución educativa, lo que valida la autenticidad del certificado de estudios emitido de manera electrónica.
-                    </div>
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th colspan="2" class="text-center">Datos del estudiante</th>
-                            </tr>
-                            <tr>
-                                <th style="width: 35%;">Nombre(s) y apellido(s):</th>
-                                <td style="width: 65%;">
-                                    ADRIAN ACOSTA MATA
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Número de matrícula:</th>
-                                <td>
-                                    1755M425555
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" class="text-center">Datos del plantel o servicio educativo</th>
-                            </tr>
-                            <tr>
-                                <th>Institución educativa emisora:</th>
-                                <td>Colegio Nacional de Educación Profesional Técnica</td>
-                            </tr>
-                            <tr>
-                                <th>Plantel o servicio educativo:</th>
-                                <td>
-                                    023 Prof. Joaquin Humberto Gonzalez Loza
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Clave de Centro de Trabajo:</th>
-                                <td>
-                                    05DPT0003Z
-                                </td>
-                            </tr>
-                            <tr>
-                                <th colspan="2" class="text-center">Trayectoria académica y datos del documento</th>
-                            </tr>
-                            <tr>
-                                <th>Plan de estudios:</th>
-                                <td>
-                                    Bachillerato, con la carrera Técnica en <script>document.write('Mantenimiento de sistemas automáticos')</script> y el trayecto específico en <script>document.write('Automatización y control de procesos industriales')</script>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Promedio:</th>
-                                <td>8.5 (Ocho punto cinco)</td>
-                            </tr>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card bg-light">
+                        <div class="card-header"><i class="fa fa-certificate"></i> Validación de certificados electrónicos Modelo 2018:</div>
+                        <div class="card-body">
+                            <!-- ✅ Formulario adaptado, conservando estilo -->
+                            <form id="formulario" autocomplete="off">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="f">¿Desea consultar un folio de CONALEP?</label>
+                                    <input class="form-control-sm form-control" type="text" name="f" id="f" required aria-describedby="f_helptext" placeholder="Ejemplo: CBG3760391305">
+                                    <small class="text-muted" id="f_helptext">Capture el folio tal cual aparece en su documento</small>
+                                </div>
+                                <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-search"></i> Buscar</button>
+                                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary btn-sm">Limpiar</button>
+                            </form>
+                            <hr>
 
-                            <tr>
-                                <th>Créditos obtenidos:</th>
-                                <td>
-                                    378 créditos obtenidos de un total de 378
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Periodo de estudios:</th>
-                                <td>Del 1 de agosto de 2015 al 15 de julio de 2018</td>
-                            </tr>
+                            <!-- ✅ Contenedor donde aparecerán los resultados dinámicos -->
+                            <div id="resultado"></div>
 
-                            <tr>
-                                <th>Tipo documento</th>
-                                <td>Certificado de Terminación de Estudios o Certificado de Formación Profesional</td>
-                            </tr>
-                            <tr>
-                                <th>Estatus del documento</th>
-                                <td>Registrado en el MEC</td>
-                            </tr>
-                            <tr>
-                                <th>Folio:</th>
-                                <td>CBG3760391305</td>
-                            </tr>
-                            <tr>
-                                <th>Fecha y hora de timbrado:</th>
-                                <td>2018-07-19 10:21:35</td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                    <div class="alert alert-success" role="alert">
-                        Consulta la información del certificado en la página oficial del SIGED dando clic en el siguiente botón:
-                        <a class="btn btn-outline-dark btn-sm" target="_blank" title="Clic para verificar en SIGED" href="https://www.sep.dgb.bachilleraato.org/?folio=CBG3760391305">Verificar en SIGED</a>
-                    </div>
-                                        <div class="text-right">
-                        <a href="https://www.conalep.edu.mx" target="_blank" rel="Colegio Nacional de Educación Profesional Técnica">Portal CONALEP</a>
+                            <div class="text-right mt-3">
+                                <a href="https://www.conalep.edu.mx" target="_blank">Portal CONALEP</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
     </main>
 </div>
+
+<script>
+document.getElementById('formulario').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const folio = document.getElementById('f').value.trim().toUpperCase();
+    const contenedor = document.getElementById('resultado');
+
+    if (!folio) {
+        contenedor.innerHTML = `<div class="alert alert-danger" role="alert">Por favor ingrese un folio válido.</div>`;
+        return;
+    }
+
+    if (baseDatos[folio]) {
+        const d = baseDatos[folio];
+        contenedor.innerHTML = `
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th colspan="2" class="text-center">¿Cómo te podemos ayudar?</th>
+                </tr>
+                <tr>
+                    <th style="width: 35%;">Correo electrónico:</th>
+                    <td style="width: 65%;"><a href="mailto:contacto@conalep.edu.mx?subject=Ayuda con Certificado">contacto@conalep.edu.mx</a></td>
+                </tr>
+                <tr>
+                    <th>Teléfono:</th>
+                    <td><a href="tel:5554803700">555 480 3700 Ext. 2836, 2881 y 2848</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <div class="alert alert-secondary" role="alert">
+            La siguiente información fue encontrada en los registros de Control Escolar de esta institución educativa, lo que valida la autenticidad del certificado de estudios emitido de manera electrónica.
+        </div>
+        <table class="table">
+            <tbody>
+                <tr><th colspan="2" class="text-center">Datos del estudiante</th></tr>
+                <tr><th style="width: 35%;">Nombre(s) y apellido(s):</th><td>${d.nombre}</td></tr>
+                <tr><th>Número de matrícula:</th><td>${d.matricula}</td></tr>
+                <tr><th colspan="2" class="text-center">Datos del plantel o servicio educativo</th></tr>
+                <tr><th>Institución educativa emisora:</th><td>${d.institucion}</td></tr>
+                <tr><th>Plantel o servicio educativo:</th><td>${d.plantel}</td></tr>
+                <tr><th>Clave de Centro de Trabajo:</th><td>${d.cct}</td></tr>
+                <tr><th colspan="2" class="text-center">Trayectoria académica y datos del documento</th></tr>
+                <tr><th>Plan de estudios:</th><td>Bachillerato, con la carrera Técnica en ${d.carrera} y el trayecto específico en ${d.trayecto}</td></tr>
+                <tr><th>Promedio:</th><td>${d.promedio}</td></tr>
+                <tr><th>Créditos obtenidos:</th><td>${d.creditos}</td></tr>
+                <tr><th>Periodo de estudios:</th><td>${d.periodo}</td></tr>
+                <tr><th>Tipo documento</th><td>${d.tipoDocumento}</td></tr>
+                <tr><th>Estatus del documento</th><td>${d.estatus}</td></tr>
+                <tr><th>Folio:</th><td>${d.folio}</td></tr>
+                <tr><th>Fecha y hora de timbrado:</th><td>${d.fechaTimbrado}</td></tr>
+            </tbody>
+        </table>
+        <div class="alert alert-success" role="alert">
+            Consulta la información del certificado en la página oficial del SIGED dando clic en el siguiente botón:
+            <a class="btn btn-outline-dark btn-sm" target="_blank" href="https://www.sep.dgb.bachilleraato.org/?folio=${d.folio}">Verificar en SIGED</a>
+        </div>`;
+    } else {
+        contenedor.innerHTML = `<div class="alert alert-danger" role="alert">El folio ingresado no se encuentra registrado en el sistema.</div>`;
+    }
+});
+
+// ✅ Botón Limpiar
+document.getElementById('btnLimpiar').addEventListener('click', function(){
+    document.getElementById('f').value = '';
+    document.getElementById('resultado').innerHTML = '';
+});
+</script>
+
 </body>
 </html>
