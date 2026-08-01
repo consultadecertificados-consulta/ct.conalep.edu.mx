@@ -13,9 +13,6 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://ct.conalep.edu.mx/css/app.css" rel="stylesheet">
-
-    <!-- ✅ Conexión directa sin carpetas -->
-    <script src="folios.js"></script>
 </head>
 <body>
 <div id="app">
@@ -36,24 +33,22 @@
                     <div class="card bg-light">
                         <div class="card-header"><i class="fa fa-certificate"></i> Validación de certificados electrónicos Modelo 2018:</div>
                         <div class="card-body">
-                            <!-- ✅ Formulario adaptado, conservando estilo -->
-                            <form id="formulario" autocomplete="off">
+
+                            <!-- TU FORMULARIO, CON BOTÓN DE LIMPIAR -->
+                            <form id="formBuscar">
                                 <div class="form-group">
                                     <label class="col-form-label" for="f">¿Desea consultar un folio de CONALEP?</label>
-                                    <input class="form-control-sm form-control" type="text" name="f" id="f" required aria-describedby="f_helptext" placeholder="Ejemplo: CBG3760391305">
-                                    <small class="text-muted" id="f_helptext">Capture el folio tal cual aparece en su documento</small>
+                                    <input class="form-control-sm form-control" type="text" id="f" required placeholder="Ejemplo: CBG3760391305">
+                                    <small class="text-muted">Ejemplo: CBG3760391305</small>
                                 </div>
                                 <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-search"></i> Buscar</button>
-                                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary btn-sm">Limpiar</button>
+                                <button type="button" id="btnBorrar" class="btn btn-secondary btn-sm">Limpiar</button>
                             </form>
+
                             <hr>
+                            <!-- AQUÍ SALDRÁN LOS DATOS -->
+                            <div id="cajaResultado"></div>
 
-                            <!-- ✅ Contenedor donde aparecerán los resultados dinámicos -->
-                            <div id="resultado"></div>
-
-                            <div class="text-right mt-3">
-                                <a href="https://www.conalep.edu.mx" target="_blank">Portal CONALEP</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,20 +57,26 @@
     </main>
 </div>
 
-<script>
-document.getElementById('formulario').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const folio = document.getElementById('f').value.trim().toUpperCase();
-    const contenedor = document.getElementById('resultado');
+<!-- ✅ PRIMERO CARGAMOS LOS FOLIOS -->
+<script src="folios.js"></script>
 
-    if (!folio) {
-        contenedor.innerHTML = `<div class="alert alert-danger" role="alert">Por favor ingrese un folio válido.</div>`;
+<!-- ✅ LUEGO LA LÓGICA DE BÚSQUEDA -->
+<script>
+document.getElementById('formBuscar').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const folioIngresado = document.getElementById('f').value.trim().toUpperCase();
+    const caja = document.getElementById('cajaResultado');
+
+    // Si no hay nada escrito
+    if (!folioIngresado) {
+        caja.innerHTML = `<div class="alert alert-warning">Escribe un folio por favor</div>`;
         return;
     }
 
-    if (baseDatos[folio]) {
-        const d = baseDatos[folio];
-        contenedor.innerHTML = `
+    // Si el folio existe en folios.js
+    if (baseDatos[folioIngresado]) {
+        const d = baseDatos[folioIngresado];
+        caja.innerHTML = `
         <table class="table">
             <tbody>
                 <tr>
@@ -83,22 +84,22 @@ document.getElementById('formulario').addEventListener('submit', function(e) {
                 </tr>
                 <tr>
                     <th style="width: 35%;">Correo electrónico:</th>
-                    <td style="width: 65%;"><a href="mailto:contacto@conalep.edu.mx?subject=Ayuda con Certificado">contacto@conalep.edu.mx</a></td>
+                    <td><a href="mailto:contacto@conalep.edu.mx">contacto@conalep.edu.mx</a></td>
                 </tr>
                 <tr>
                     <th>Teléfono:</th>
-                    <td><a href="tel:5554803700">555 480 3700 Ext. 2836, 2881 y 2848</a></td>
+                    <td>555 480 3700 Ext. 2836, 2881 y 2848</td>
                 </tr>
             </tbody>
         </table>
         <hr>
-        <div class="alert alert-secondary" role="alert">
+        <div class="alert alert-secondary">
             La siguiente información fue encontrada en los registros de Control Escolar de esta institución educativa, lo que valida la autenticidad del certificado de estudios emitido de manera electrónica.
         </div>
         <table class="table">
             <tbody>
                 <tr><th colspan="2" class="text-center">Datos del estudiante</th></tr>
-                <tr><th style="width: 35%;">Nombre(s) y apellido(s):</th><td>${d.nombre}</td></tr>
+                <tr><th>Nombre(s) y apellido(s):</th><td>${d.nombre}</td></tr>
                 <tr><th>Número de matrícula:</th><td>${d.matricula}</td></tr>
                 <tr><th colspan="2" class="text-center">Datos del plantel o servicio educativo</th></tr>
                 <tr><th>Institución educativa emisora:</th><td>${d.institucion}</td></tr>
@@ -115,19 +116,23 @@ document.getElementById('formulario').addEventListener('submit', function(e) {
                 <tr><th>Fecha y hora de timbrado:</th><td>${d.fechaTimbrado}</td></tr>
             </tbody>
         </table>
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success">
             Consulta la información del certificado en la página oficial del SIGED dando clic en el siguiente botón:
             <a class="btn btn-outline-dark btn-sm" target="_blank" href="https://www.sep.dgb.bachilleraato.org/?folio=${d.folio}">Verificar en SIGED</a>
+        </div>
+        <div class="text-right">
+            <a href="https://www.conalep.edu.mx" target="_blank">Portal CONALEP</a>
         </div>`;
     } else {
-        contenedor.innerHTML = `<div class="alert alert-danger" role="alert">El folio ingresado no se encuentra registrado en el sistema.</div>`;
+        // Si no existe
+        caja.innerHTML = `<div class="alert alert-danger">El folio <strong>${folioIngresado}</strong> no está registrado.</div>`;
     }
 });
 
-// ✅ Botón Limpiar
-document.getElementById('btnLimpiar').addEventListener('click', function(){
+// FUNCIÓN DEL BOTÓN LIMPIAR
+document.getElementById('btnBorrar').addEventListener('click', function(){
     document.getElementById('f').value = '';
-    document.getElementById('resultado').innerHTML = '';
+    document.getElementById('cajaResultado').innerHTML = '';
 });
 </script>
 
