@@ -15,6 +15,7 @@ const baseDatos = {
         folio: "CBG3760391305",
         fechaTimbrado: "2018-07-19 10:21:35"
     },
+    
     "CBG3760539125146": {
         nombre: "BENITO CAMELA",
         matricula: "1755M425555",
@@ -30,7 +31,9 @@ const baseDatos = {
         estatus: "Registrado en el MEC",
         folio: "CBG3760391305",
         fechaTimbrado: "2018-07-19 10:21:35"
-            },
+        
+    },
+        
     "CBG37603913052": {
         nombre: "ADRIAN ACOSTA MATA",
         matricula: "1755M425555",
@@ -46,7 +49,8 @@ const baseDatos = {
         estatus: "Registrado en el MEC",
         folio: "CBG3760391305",
         fechaTimbrado: "2018-07-19 10:21:35"
-},
+        },
+
     "CBG37603913053": {
         nombre: "ADRIAN ACOSTA MATA",
         matricula: "1755M425555",
