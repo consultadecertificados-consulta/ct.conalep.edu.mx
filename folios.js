@@ -14,7 +14,7 @@ const baseDatos = {
         estatus: "Registrado en el MEC",
         folio: "CBG3760391305",
         fechaTimbrado: "2018-07-19 10:21:35"
-    }
+    
     },
     const baseDatos = {
     "CBG3760539125146": {
@@ -32,9 +32,9 @@ const baseDatos = {
         estatus: "Registrado en el MEC",
         folio: "CBG3760391305",
         fechaTimbrado: "2018-07-19 10:21:35"
-    }
+    
         
-    },
+},
         
     "CBG37603913052": {
         nombre: "ADRIAN ACOSTA MATA",
