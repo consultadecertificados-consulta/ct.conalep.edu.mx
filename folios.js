@@ -49,7 +49,7 @@ const baseDatos = {
         periodo: "Del 1 de agosto de 2015 al 15 de julio de 2018",
         tipoDocumento: "Certificado de Terminación de Estudios o Certificado de Formación Profesional",
         estatus: "Registrado en el MEC",
-        folio: "CBG3760391305",
+        folio: "CBG37603913052",
         fechaTimbrado: "2018-07-19 10:21:35"
         },
 
