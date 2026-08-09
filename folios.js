@@ -1,5 +1,5 @@
 const baseDatos = {
-    "CBG376039120514-": {
+    "CBG3760391205147": {
         nombre: "JUANA SANCHEZ AGUILERA.",
         matricula: "1702R950249",
         institucion: "Colegio Nacional de Educación Profesional Técnica",
@@ -12,7 +12,7 @@ const baseDatos = {
         periodo: "Del 13 de agosto de 2004 al 18 de junio de 2006",
         tipoDocumento: "Certificado de Terminación de Estudios o Certificado de Formación Profesional",
         estatus: "Registrado en el MEC",
-        folio: "CBG376039120514-",
+        folio: "CBG3760391205147",
         fechaTimbrado: "2006-06-18 16:20:11"
     
     },
