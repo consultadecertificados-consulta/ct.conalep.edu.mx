@@ -17,21 +17,21 @@ const baseDatos = {
     
     },
     
-    "CBG3760539125146": {
-        nombre: "BENITO CAMELA",
-        matricula: "1755M425555",
+    "CBG37603900125155": {
+        nombre: "GIOVANA HAIDE MARTINEZ CASTILLO",
+        matricula: "DG-1702R950254",
         institucion: "Colegio Nacional de Educación Profesional Técnica",
-        plantel: "023 Prof. Joaquin Humberto Gonzalez Loza",
-        cct: "05DPT0003Z",
-        carrera: "Mantenimiento de sistemas automáticos",
-        trayecto: "Automatización y control de procesos industriales",
-        promedio: "8.5 (Ocho punto cinco)",
-        creditos: "378 créditos obtenidos de un total de 378",
-        periodo: "Del 1 de agosto de 2015 al 15 de julio de 2018",
+        plantel: "0213 Don José Hernández María Martínez",
+        cct: "19DPT0007C",
+        carrera: "CONTABILIDAD",
+        trayecto: "Trayectos técnicos y propedéuticos ",
+        promedio: "8.2 (Ocho punto dos)",
+        creditos: "356 créditos obtenidos de un total de 356",
+        periodo: "Del 22 de agosto de 2022 al 07 de junio de 2025",
         tipoDocumento: "Certificado de Terminación de Estudios o Certificado de Formación Profesional",
         estatus: "Registrado en el MEC",
-        folio: "CBG3760539125146",
-        fechaTimbrado: "2018-07-19 10:21:35"
+        folio: "CBG37603900125155",
+        fechaTimbrado: "2025-06-12 10:32:43"
     
         
 },
