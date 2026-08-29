@@ -36,21 +36,21 @@ const baseDatos = {
         
 },
         
-    "CBG37603913052": {
-        nombre: "ADRIAN ACOSTA MATA",
-        matricula: "1755M425555",
+    "CBG376039125162": {
+        nombre: "ROSA ISELA TECUA GUERRERO",
+        matricula: "DG-1702R950264",
         institucion: "Colegio Nacional de Educación Profesional Técnica",
-        plantel: "023 Prof. Joaquin Humberto Gonzalez Loza",
-        cct: "05DPT0003Z",
-        carrera: "Mantenimiento de sistemas automáticos",
-        trayecto: "Automatización y control de procesos industriales",
-        promedio: "8.5 (Ocho punto cinco)",
-        creditos: "378 créditos obtenidos de un total de 378",
-        periodo: "Del 1 de agosto de 2015 al 15 de julio de 2018",
+        plantel: "057 Prof. Veracruz.1",
+        cct: "30DPT0002D",
+        carrera: "Informática",
+        trayecto: "trayectos técnicos y propedéuticos",
+        promedio: "9.9 (Nueve punto nueve)",
+        creditos: "356 créditos obtenidos de un total de 356",
+        periodo: "Del 22 de agosto de 2015 al 07 de junio de 2018",
         tipoDocumento: "Certificado de Terminación de Estudios o Certificado de Formación Profesional",
         estatus: "Registrado en el MEC",
-        folio: "CBG37603913052",
-        fechaTimbrado: "2018-07-19 10:21:35"
+        folio: "CBG376039125162",
+        fechaTimbrado: "2018-06-18 16:20:11"
         },
 
     "CBG37603913053": {
