@@ -22,8 +22,6 @@
             <a class="navbar-brand" href="https://ct.conalep.edu.mx/home">
                 <img src="https://ct.conalep.edu.mx/images/logoconalep.png" alt="Colegio Nacional de Educación Profesional Técnica - Cédula Digital">
             </a>
-            
-                
         </div>
     </nav>
     <main class="py-4">
@@ -34,7 +32,7 @@
                         <div class="card-header"><i class="fa fa-certificate"></i> Validación de certificados electrónicos Modelo 2018:</div>
                         <div class="card-body">
 
-                            <!-- TU FORMULARIO, CON BOTÓN DE LIMPIAR -->
+                            <!-- FORMULARIO DE BÚSQUEDA CON BOTÓN DE LIMPIAR -->
                             <form id="formBuscar">
                                 <div class="form-group">
                                     <label class="col-form-label" for="f">¿Desea consultar un folio de CONALEP?</label>
@@ -46,7 +44,7 @@
                             </form>
 
                             <hr>
-                            <!-- AQUÍ SALDRÁN LOS DATOS -->
+                            <!-- CAJA DONDE APARECERÁN LOS RESULTADOS -->
                             <div id="cajaResultado"></div>
 
                         </div>
@@ -57,24 +55,24 @@
     </main>
 </div>
 
-<!-- ✅ PRIMERO CARGAMOS LOS FOLIOS -->
+<!-- CARGAMOS LA BASE DE DATOS DE FOLIOS -->
 <script src="folios.js"></script>
 
-<!-- ✅ LUEGO LA LÓGICA DE BÚSQUEDA -->
+<!-- LÓGICA DE BÚSQUEDA Y FUNCIONES -->
 <script>
 document.getElementById('formBuscar').addEventListener('submit', function(e) {
     e.preventDefault();
     const folioIngresado = document.getElementById('f').value.trim().toUpperCase();
     const caja = document.getElementById('cajaResultado');
 
-    // Si no hay nada escrito
+    // Validación: campo vacío
     if (!folioIngresado) {
         caja.innerHTML = `<div class="alert alert-warning">Escribe un folio por favor</div>`;
         return;
     }
 
-    // Si el folio existe en folios.js
-    if (baseDatos[folioIngresado]) {
+    // Si el folio existe en la base de datos
+    if (typeof baseDatos !== 'undefined' && baseDatos[folioIngresado]) {
         const d = baseDatos[folioIngresado];
         caja.innerHTML = `
         <table class="table">
@@ -99,32 +97,32 @@ document.getElementById('formBuscar').addEventListener('submit', function(e) {
         <table class="table">
             <tbody>
                 <tr><th colspan="2" class="text-center">Datos del estudiante</th></tr>
-                <tr><th>Nombre(s) y apellido(s):</th><td>${d.nombre}</td></tr>
-                <tr><th>Número de matrícula:</th><td>${d.matricula}</td></tr>
+                <tr><th>Nombre(s) y apellido(s):</th><td>${d.nombre || 'No disponible'}</td></tr>
+                <tr><th>Número de matrícula:</th><td>${d.matricula || 'No disponible'}</td></tr>
                 <tr><th colspan="2" class="text-center">Datos del plantel o servicio educativo</th></tr>
-                <tr><th>Institución educativa emisora:</th><td>${d.institucion}</td></tr>
-                <tr><th>Plantel o servicio educativo:</th><td>${d.plantel}</td></tr>
-                <tr><th>Clave de Centro de Trabajo:</th><td>${d.cct}</td></tr>
+                <tr><th>Institución educativa emisora:</th><td>${d.institucion || 'CONALEP'}</td></tr>
+                <tr><th>Plantel o servicio educativo:</th><td>${d.plantel || 'No disponible'}</td></tr>
+                <tr><th>Clave de Centro de Trabajo:</th><td>${d.cct || 'No disponible'}</td></tr>
                 <tr><th colspan="2" class="text-center">Trayectoria académica y datos del documento</th></tr>
-                <tr><th>Plan de estudios:</th><td>Bachillerato, con la carrera Técnica en ${d.carrera} y el trayecto específico en ${d.trayecto}</td></tr>
-                <tr><th>Promedio:</th><td>${d.promedio}</td></tr>
-                <tr><th>Créditos obtenidos:</th><td>${d.creditos}</td></tr>
-                <tr><th>Periodo de estudios:</th><td>${d.periodo}</td></tr>
-                <tr><th>Tipo documento</th><td>${d.tipoDocumento}</td></tr>
-                <tr><th>Estatus del documento</th><td>${d.estatus}</td></tr>
-                <tr><th>Folio:</th><td>${d.folio}</td></tr>
-                <tr><th>Fecha y hora de timbrado:</th><td>${d.fechaTimbrado}</td></tr>
+                <tr><th>Plan de estudios:</th><td>Bachillerato, con la carrera Técnica en ${d.carrera || 'No disponible'} y el trayecto específico en ${d.trayecto || 'No disponible'}</td></tr>
+                <tr><th>Promedio:</th><td>${d.promedio || 'No disponible'}</td></tr>
+                <tr><th>Créditos obtenidos:</th><td>${d.creditos || 'No disponible'}</td></tr>
+                <tr><th>Periodo de estudios:</th><td>${d.periodo || 'No disponible'}</td></tr>
+                <tr><th>Tipo documento:</th><td>${d.tipoDocumento || 'Certificado Digital'}</td></tr>
+                <tr><th>Estatus del documento:</th><td>${d.estatus || 'Vigente'}</td></tr>
+                <tr><th>Folio:</th><td>${d.folio || folioIngresado}</td></tr>
+                <tr><th>Fecha y hora de timbrado:</th><td>${d.fechaTimbrado || 'No disponible'}</td></tr>
             </tbody>
         </table>
         <div class="alert alert-success">
             Consulta la información del certificado en la página oficial del DGB dando clic en el siguiente botón:
-            <a class="btn btn-outline-dark btn-sm" target="_blank" href="https://www.sep.dgb.bachillerato-gob.mx/?folio=${d.folio}">Verificar en DGB</a>
+            <a class="btn btn-outline-dark btn-sm" target="_blank" href="https://www.sep.dgb.bachillerato-gob.mx/?folio=${d.folio || folioIngresado}">Verificar en DGB</a>
         </div>
         <div class="text-right">
             <a href="https://www.conalep.edu.mx" target="_blank">Portal CONALEP</a>
         </div>`;
     } else {
-        // Si no existe
+        // Si el folio NO existe
         caja.innerHTML = `<div class="alert alert-danger">El folio <strong>${folioIngresado}</strong> no está registrado.</div>`;
     }
 });
@@ -133,6 +131,7 @@ document.getElementById('formBuscar').addEventListener('submit', function(e) {
 document.getElementById('btnBorrar').addEventListener('click', function(){
     document.getElementById('f').value = '';
     document.getElementById('cajaResultado').innerHTML = '';
+    document.getElementById('f').focus();
 });
 </script>
 
