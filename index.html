@@ -32,7 +32,7 @@
                         <div class="card-header"><i class="fa fa-certificate"></i> Validación de certificados electrónicos Modelo 2018:</div>
                         <div class="card-body">
 
-                            <!-- FORMULARIO DE BÚSQUEDA -->
+                            <!-- TU FORMULARIO, CON BOTÓN DE LIMPIAR -->
                             <form id="formBuscar">
                                 <div class="form-group">
                                     <label class="col-form-label" for="f">¿Desea consultar un folio de CONALEP?</label>
@@ -44,6 +44,7 @@
                             </form>
 
                             <hr>
+                            <!-- AQUÍ SALDRÁN LOS DATOS -->
                             <div id="cajaResultado"></div>
 
                         </div>
@@ -54,94 +55,106 @@
     </main>
 </div>
 
+<!-- ✅ PRIMERO CARGAMOS LOS FOLIOS -->
 <script src="folios.js"></script>
 
+<!-- ✅ LÓGICA DE BÚSQUEDA + FOLIO AUTOMÁTICO DE LA URL -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const formBuscar = document.getElementById('formBuscar');
     const inputFolio = document.getElementById('f');
     const cajaResultado = document.getElementById('cajaResultado');
-    const btnBorrar = document.getElementById('btnBorrar');
 
-    // ✅ 1. LEER EL FOLIO DE LA URL Y PONERLO AUTOMÁTICAMENTE
+    // ✅ LEER FOLIO DE LA URL Y CARGARLO AUTOMÁTICAMENTE
     const parametrosURL = new URLSearchParams(window.location.search);
     const folioDeURL = parametrosURL.get('folio');
-
-    // Si hay folio en la URL → se pone en el input y se busca SOLO
     if (folioDeURL) {
         inputFolio.value = folioDeURL.trim();
-        // 🔍 Se ejecuta la búsqueda automáticamente
-        buscarFolio(inputFolio.value.trim());
+        // Ejecutar búsqueda automáticamente
+        setTimeout(() => buscarFolio(inputFolio.value.trim()), 100);
     }
 
-    // ✅ Verificar base de datos
-    if (typeof baseDatos === 'undefined') {
-        cajaResultado.innerHTML = `<div class="alert alert-danger">⚠️ Error: No se cargó folios.js</div>`;
-        return;
-    }
-
-    // 📌 Función principal de búsqueda
+    // 📌 FUNCIÓN DE BÚSQUEDA — TAL COMO ESTABA ORIGINALMENTE
     function buscarFolio(folioIngresado) {
+        const folio = folioIngresado.toUpperCase();
         cajaResultado.innerHTML = '';
 
-        if (!folioIngresado) {
+        // Si no hay nada escrito
+        if (!folio) {
             cajaResultado.innerHTML = `<div class="alert alert-warning">Escribe un folio por favor</div>`;
             return;
         }
 
-        // Buscar sin importar mayúsculas/minúsculas
-        let folioEncontrado = null;
-        let folioClave = null;
-
-        for (let clave in baseDatos) {
-            if (clave.trim().toUpperCase() === folioIngresado.toUpperCase()) {
-                folioEncontrado = baseDatos[clave];
-                folioClave = clave;
-                break;
-            }
-        }
-
-        if (folioEncontrado) {
-            const d = folioEncontrado;
+        // Si el folio existe en folios.js — TAL CUAL LO TENÍAS
+        if (baseDatos[folio]) {
+            const d = baseDatos[folio];
             cajaResultado.innerHTML = `
             <table class="table">
                 <tbody>
                     <tr>
-                        <tr><th colspan="2" class="text-center">Datos del estudiante</th></tr>
-                <tr><th>Nombre(s) y apellido(s):</th><td>${d.nombre}</td></tr>
-                <tr><th>Número de matrícula:</th><td>${d.matricula}</td></tr>
-                <tr><th colspan="2" class="text-center">Datos del plantel o servicio educativo</th></tr>
-                <tr><th>Institución educativa emisora:</th><td>${d.institucion}</td></tr>
-                <tr><th>Plantel o servicio educativo:</th><td>${d.plantel}</td></tr>
-                <tr><th>Clave de Centro de Trabajo:</th><td>${d.cct}</td></tr>
-                <tr><th colspan="2" class="text-center">Trayectoria académica y datos del documento</th></tr>
-                <tr><th>Plan de estudios:</th><td>Bachillerato, con la carrera Técnica en ${d.carrera} y el trayecto específico en ${d.trayecto}</td></tr>
-                <tr><th>Promedio:</th><td>${d.promedio}</td></tr>
-                <tr><th>Créditos obtenidos:</th><td>${d.creditos}</td></tr>
-                <tr><th>Periodo de estudios:</th><td>${d.periodo}</td></tr>
-                <tr><th>Tipo documento</th><td>${d.tipoDocumento}</td></tr>
-                <tr><th>Estatus del documento</th><td>${d.estatus}</td></tr>
-                <tr><th>Folio:</th><td>${d.folio}</td></tr>
-                <tr><th>Fecha y hora de timbrado:</th><td>${d.fechaTimbrado}</td></tr>
-            </tbody>
-        </table>
-        <div class="alert alert-success">
-            Consulta la información del certificado en la página oficial del DGB dando clic en el siguiente botón:
-            <a class="btn btn-outline-dark btn-sm" target="_blank" href="https://www.sep.dgb.bachillerato-gob.mx/?folio=${d.folio}">Verificar en DGB</a>
-        </div>
-        <div class="text-right">
-            <a href="https://www.conalep.edu.mx" target="_blank">Portal CONALEP</a>
-        </div>`;
-    } else {
-        // Si no existe
-        caja.innerHTML = `<div class="alert alert-danger">El folio <strong>${folioIngresado}</strong> no está registrado.</div>`;
+                        <th colspan="2" class="text-center">¿Cómo te podemos ayudar?</th>
+                    </tr>
+                    <tr>
+                        <th style="width: 35%;">Correo electrónico:</th>
+                        <td><a href="mailto:contacto@conalep.edu.mx">contacto@conalep.edu.mx</a></td>
+                    </tr>
+                    <tr>
+                        <th>Teléfono:</th>
+                        <td>555 480 3700 Ext. 2836, 2881 y 2848</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <div class="alert alert-secondary">
+                La siguiente información fue encontrada en los registros de Control Escolar de esta institución educativa, lo que valida la autenticidad del certificado de estudios emitido de manera electrónica.
+            </div>
+            <table class="table">
+                <tbody>
+                    <tr><th colspan="2" class="text-center">Datos del estudiante</th></tr>
+                    <tr><th>Nombre(s) y apellido(s):</th><td>${d.nombre}</td></tr>
+                    <tr><th>Número de matrícula:</th><td>${d.matricula}</td></tr>
+                    <tr><th colspan="2" class="text-center">Datos del plantel o servicio educativo</th></tr>
+                    <tr><th>Institución educativa emisora:</th><td>${d.emisor}</td></tr>
+                    <tr><th>Plantel o servicio educativo:</th><td>${d.plantel}</td></tr>
+                    <tr><th>Clave de Centro de Trabajo:</th><td>${d.cct}</td></tr>
+                    <tr><th colspan="2" class="text-center">Trayectoria académica y datos del documento</th></tr>
+                    <tr><th>Plan de estudios:</th><td>Bachillerato, con la carrera Técnica en ${d.carrera} y el trayecto específico en ${d.trayecto}</td></tr>
+                    <tr><th>Promedio:</th><td>${d.promedio}</td></tr>
+                    <tr><th>Créditos obtenidos:</th><td>${d.creditos}</td></tr>
+                    <tr><th>Periodo de estudios:</th><td>${d.periodo}</td></tr>
+                    <tr><th>Tipo documento</th><td>${d.tipoDocumento}</td></tr>
+                    <tr><th>Estatus del documento</th><td>${d.estatus}</td></tr>
+                    <tr><th>Folio:</th><td>${folio}</td></tr>
+                    <tr><th>Fecha y hora de timbrado:</th><td>${d.fechaTimbrado}</td></tr>
+                </tbody>
+            </table>
+            <div class="alert alert-success">
+                Consulta la información del certificado en la página oficial del DGB dando clic en el siguiente botón:
+                <a class="btn btn-outline-dark btn-sm" target="_blank" href="https://www.sep.dgb.bachillerato-gob.mx/?folio=${folio}">Verificar en DGB</a>
+            </div>
+            <div class="text-right">
+                <a href="https://www.conalep.edu.mx" target="_blank">Portal CONALEP</a>
+            </div>`;
+        } else {
+            // Si no existe
+            cajaResultado.innerHTML = `<div class="alert alert-danger">El folio <strong>${folio}</strong> no está registrado.</div>`;
+        }
     }
-});
 
-// FUNCIÓN DEL BOTÓN LIMPIAR
-document.getElementById('btnBorrar').addEventListener('click', function(){
-    document.getElementById('f').value = '';
-    document.getElementById('cajaResultado').innerHTML = '';
+    // Enviar formulario
+    formBuscar.addEventListener('submit', function(e) {
+        e.preventDefault();
+        buscarFolio(inputFolio.value.trim());
+    });
+
+    // FUNCIÓN DEL BOTÓN LIMPIAR
+    document.getElementById('btnBorrar').addEventListener('click', function(){
+        inputFolio.value = '';
+        cajaResultado.innerHTML = '';
+        // Quitar el folio de la URL al limpiar
+        window.history.replaceState({}, document.title, window.location.pathname);
+    });
+
 });
 </script>
 
