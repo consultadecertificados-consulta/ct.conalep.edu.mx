@@ -107,65 +107,41 @@ document.addEventListener('DOMContentLoaded', function() {
             <table class="table">
                 <tbody>
                     <tr>
-                        <th colspan="2" class="text-center">¿Cómo te podemos ayudar?</th>
-                    </tr>
-                    <tr>
-                        <th style="width: 35%;">Correo electrónico:</th>
-                        <td><a href="mailto:contacto@conalep.edu.mx">contacto@conalep.edu.mx</a></td>
-                    </tr>
-                    <tr>
-                        <th>Teléfono:</th>
-                        <td>555 480 3700 Ext. 2836, 2881 y 2848</td>
-                    </tr>
-                </tbody>
-            </table>
-            <hr>
-            <div class="alert alert-secondary">
-                La siguiente información fue encontrada en los registros de Control Escolar de esta institución educativa, lo que valida la autenticidad del certificado de estudios emitido de manera electrónica.
-            </div>
-            <table class="table">
-                <tbody>
-                    <tr><th colspan="2" class="text-center">Datos del estudiante</th></tr>
-                    <tr><th>Nombre(s) y apellido(s):</th><td>${d.nombre || 'No disponible'}</td></tr>
-                    <tr><th>Número de matrícula:</th><td>${d.matricula || 'No disponible'}</td></tr>
-                    <tr><th colspan="2" class="text-center">Datos del plantel o servicio educativo</th></tr>
-                    <tr><th>Institución educativa emisora:</th><td>${d.emisor || d.institucion || 'CONALEP'}</td></tr>
-                    <tr><th>Plantel o servicio educativo:</th><td>${d.plantel || 'No disponible'}</td></tr>
-                    <tr><th>Clave de Centro de Trabajo:</th><td>${d.cct || 'No disponible'}</td></tr>
-                    <tr><th colspan="2" class="text-center">Trayectoria académica y datos del documento</th></tr>
-                    <tr><th>Plan de estudios:</th><td>${d.plan || 'No disponible'}</td></tr>
-                    <tr><th>Promedio:</th><td>${d.promedio || 'No disponible'}</td></tr>
-                    <tr><th>Periodo de estudios:</th><td>${d.periodo || 'No disponible'}</td></tr>
-                    <tr><th>Folio:</th><td>${folioClave}</td></tr>
-                </tbody>
-            </table>
-            <div class="alert alert-success">
-                Consulta la información del certificado en la página oficial del DGB dando clic en el siguiente botón:
-                <a class="btn btn-outline-dark btn-sm" target="_blank" href="https://www.sep.dgb.bachillerato-gob.mx/?folio=${encodeURIComponent(folioClave)}">Verificar en DGB</a>
-            </div>
-            <div class="text-right">
-                <a href="https://www.conalep.edu.mx" target="_blank">Portal CONALEP</a>
-            </div>`;
-        } else {
-            cajaResultado.innerHTML = `<div class="alert alert-danger">El folio <strong>${folioIngresado}</strong> no está registrado.</div>`;
-        }
+                        <tr><th colspan="2" class="text-center">Datos del estudiante</th></tr>
+                <tr><th>Nombre(s) y apellido(s):</th><td>${d.nombre}</td></tr>
+                <tr><th>Número de matrícula:</th><td>${d.matricula}</td></tr>
+                <tr><th colspan="2" class="text-center">Datos del plantel o servicio educativo</th></tr>
+                <tr><th>Institución educativa emisora:</th><td>${d.institucion}</td></tr>
+                <tr><th>Plantel o servicio educativo:</th><td>${d.plantel}</td></tr>
+                <tr><th>Clave de Centro de Trabajo:</th><td>${d.cct}</td></tr>
+                <tr><th colspan="2" class="text-center">Trayectoria académica y datos del documento</th></tr>
+                <tr><th>Plan de estudios:</th><td>Bachillerato, con la carrera Técnica en ${d.carrera} y el trayecto específico en ${d.trayecto}</td></tr>
+                <tr><th>Promedio:</th><td>${d.promedio}</td></tr>
+                <tr><th>Créditos obtenidos:</th><td>${d.creditos}</td></tr>
+                <tr><th>Periodo de estudios:</th><td>${d.periodo}</td></tr>
+                <tr><th>Tipo documento</th><td>${d.tipoDocumento}</td></tr>
+                <tr><th>Estatus del documento</th><td>${d.estatus}</td></tr>
+                <tr><th>Folio:</th><td>${d.folio}</td></tr>
+                <tr><th>Fecha y hora de timbrado:</th><td>${d.fechaTimbrado}</td></tr>
+            </tbody>
+        </table>
+        <div class="alert alert-success">
+            Consulta la información del certificado en la página oficial del DGB dando clic en el siguiente botón:
+            <a class="btn btn-outline-dark btn-sm" target="_blank" href="https://www.sep.dgb.bachillerato-gob.mx/?folio=${d.folio}">Verificar en DGB</a>
+        </div>
+        <div class="text-right">
+            <a href="https://www.conalep.edu.mx" target="_blank">Portal CONALEP</a>
+        </div>`;
+    } else {
+        // Si no existe
+        caja.innerHTML = `<div class="alert alert-danger">El folio <strong>${folioIngresado}</strong> no está registrado.</div>`;
     }
+});
 
-    // 📌 Enviar formulario manualmente
-    formBuscar.addEventListener('submit', function(e) {
-        e.preventDefault();
-        buscarFolio(inputFolio.value.trim());
-    });
-
-    // 🧹 Botón Limpiar
-    btnBorrar.addEventListener('click', function(){
-        inputFolio.value = '';
-        cajaResultado.innerHTML = '';
-        inputFolio.focus();
-        // Quitar el folio de la URL al limpiar
-        window.history.replaceState({}, document.title, window.location.pathname);
-    });
-
+// FUNCIÓN DEL BOTÓN LIMPIAR
+document.getElementById('btnBorrar').addEventListener('click', function(){
+    document.getElementById('f').value = '';
+    document.getElementById('cajaResultado').innerHTML = '';
 });
 </script>
 
