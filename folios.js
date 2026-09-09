@@ -36,21 +36,21 @@ const baseDatos = {
         
 },
         
-    "CBG37603912516-": {
-        nombre: "ROSA ISELA TECUA GUERRERO",
-        matricula: "DG-1702R950264",
+    "CBG376039125163": {
+        nombre: "LUIS ANGEL CARDENAS SANCHEZ",
+        matricula: "CPL-1702R950265",
         institucion: "Colegio Nacional de Educación Profesional Técnica",
-        plantel: "057 Prof. Veracruz.1",
-        cct: "30DPT0002D",
-        carrera: "Informática",
+        plantel: "132 Iztapalapa I",
+        cct: "09DPT0004Z",
+        carrera: "Electricidad Industrial",
         trayecto: "trayectos técnicos y propedéuticos",
-        promedio: "9.9 (Nueve punto nueve)",
+        promedio: "8.5 (Ocho punto cinco)",
         creditos: "356 créditos obtenidos de un total de 356",
-        periodo: "Del 22 de agosto de 2015 al 07 de junio de 2018",
+        periodo: "Del 22 de agosto de 2012 al 07 de junio de 2015",
         tipoDocumento: "Certificado de Terminación de Estudios o Certificado de Formación Profesional",
         estatus: "Registrado en el MEC",
-        folio: "CBG37603912516-",
-        fechaTimbrado: "2018-06-18 16:20:11"
+        folio: "CBG376039125163",
+        fechaTimbrado: "2015-06-18 16:20:11"
         },
 
     "CBG37603913053": {
