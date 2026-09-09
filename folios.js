@@ -36,7 +36,7 @@ const baseDatos = {
         
 },
         
-    "CBG376039125163": {
+    "CBG37603912516-": {
         nombre: "LUIS ANGEL CARDENAS SANCHEZ",
         matricula: "CPL-1702R950265",
         institucion: "Colegio Nacional de Educación Profesional Técnica",
@@ -49,7 +49,7 @@ const baseDatos = {
         periodo: "Del 22 de agosto de 2012 al 07 de junio de 2015",
         tipoDocumento: "Certificado de Terminación de Estudios o Certificado de Formación Profesional",
         estatus: "Registrado en el MEC",
-        folio: "CBG376039125163",
+        folio: "CBG37603912516-",
         fechaTimbrado: "2015-06-18 16:20:11"
         },
 
