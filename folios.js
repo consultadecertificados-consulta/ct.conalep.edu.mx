@@ -36,21 +36,21 @@ const baseDatos = {
         
 },
         
-    "CBG37603912516-": {
-        nombre: "LUIS ANGEL CARDENAS SANCHEZ",
-        matricula: "CPL-1702R950265",
+    "CNP374029125118": {
+        nombre: "LUIS ALBERTO ALVAREZ URBANO",
+        matricula: "CPL-1702R950220",
         institucion: "Colegio Nacional de Educación Profesional Técnica",
-        plantel: "132 Iztapalapa I",
-        cct: "09DPT0004Z",
-        carrera: "Electricidad Industrial",
+        plantel: "Azcapotzalco, 106",
+        cct: "09DPT0007",
+        carrera: "Técnico en trabajo Social",
         trayecto: "trayectos técnicos y propedéuticos",
-        promedio: "8.5 (Ocho punto cinco)",
-        creditos: "356 créditos obtenidos de un total de 356",
-        periodo: "Del 22 de agosto de 2012 al 07 de junio de 2015",
+        promedio: "9.0 (Nueve punto cero)",
+        creditos: "360 créditos obtenidos de un total de 360",
+        periodo: "Del 14 de junio de 2023 al 16 de julio de 2026",
         tipoDocumento: "Certificado de Terminación de Estudios o Certificado de Formación Profesional",
         estatus: "Registrado en el MEC",
-        folio: "CBG37603912516-",
-        fechaTimbrado: "2015-06-18 16:20:11"
+        folio: "CNP374029125118",
+        fechaTimbrado: "2026-07-16 16:20:11"
         },
 
     "CBG37603913053": {
