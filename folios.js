@@ -71,7 +71,7 @@ const baseDatos = {
     },
 
 
-        "CBG371360391251": {
+        "CBG37136039125-": {
         nombre: "MARIA ISABEL PLASCENCIA GALVAN",
         matricula: "CNP/1702R950203",
         institucion: "Colegio Nacional de Educación Profesional Técnica",
@@ -84,7 +84,7 @@ const baseDatos = {
         periodo: "Del 13 de agosto de 2018 al 18 de junio de 2021",
         tipoDocumento: "Certificado de Terminación de Estudios o Certificado de Formación Profesional",
         estatus: "Registrado en el MEC",
-        folio: "CBG371360391251",
+        folio: "CBG37136039125-",
         fechaTimbrado: "2021-06-11 16:20:11"
 }
 };
