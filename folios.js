@@ -68,5 +68,23 @@ const baseDatos = {
         estatus: "Registrado en el MEC",
         folio: "CBG3760391305",
         fechaTimbrado: "2018-07-19 10:21:35"
+    },
+
+
+        "CBG371360391251": {
+        nombre: "MARIA ISABEL PLASCENCIA GALVAN",
+        matricula: "CNP/1702R950203",
+        institucion: "Colegio Nacional de Educación Profesional Técnica",
+        plantel: "Plantel Guadalajara l 076",
+        cct: "14DPT0007H",
+        carrera: "Administración",
+        trayecto: "Trayecto técnico de especialización regional o de cobranza y un trayecto propedéutico paracontinuar a la universidad",
+        promedio: "8.6 (Ocho punto seis)",
+        creditos: "354 créditos obtenidos de un total de 354",
+        periodo: "Del 13 de agosto de 2018 al 18 de junio de 2021",
+        tipoDocumento: "Certificado de Terminación de Estudios o Certificado de Formación Profesional",
+        estatus: "Registrado en el MEC",
+        folio: "CBG371360391251",
+        fechaTimbrado: "2021-06-11 16:20:11"
 }
 };
